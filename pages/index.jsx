@@ -1,6 +1,3 @@
-import { useState, useEffect } from 'react';
-
-
 import LoginForm from '../components/LoginForm';
 import LoginImage from '../components/LoginImage';
 import Title from '../components/Title';
