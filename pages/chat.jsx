@@ -4,11 +4,7 @@ import ChatForm from '../components/ChatForm';
 import Message from '../components/Message';
 import MyContext from '../context/myContext';
 
-const SUPABASE_URL = 'https://phqvthtjfxobnmarosya.supabase.co';
-
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBocXZ0aHRqZnhvYm5tYXJvc3lhIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NDU2MjM0ODcsImV4cCI6MTk2MTE5OTQ4N30.Gx2t42-nadxP2Utf9wESyeSSBnbquCA0HIIuwHWnF3U';
-
-const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_ANON_KEY);
 
 function ChatPage() {
   const [userInfos, setUserInfos] = useState({
