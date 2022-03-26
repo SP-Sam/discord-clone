@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
-import { useState, useContext, useEffect } from 'react';
+import { useState, useContext, useEffect, useRef } from 'react';
 import ChatForm from '../components/ChatForm';
 import Message from '../components/Message';
 import MyContext from '../context/myContext';
@@ -13,6 +13,11 @@ function ChatPage() {
   });
 
   const { messageList, setMessageList } = useContext(MyContext);
+  const messagesEndRef = useRef(null);
+
+  function scrollToTheBottom() {
+    messagesEndRef.current?.scrollIntoView();
+  }
 
   function realTimeListener(addNewMessage) {
     return (
@@ -23,8 +28,12 @@ function ChatPage() {
   }
 
   useEffect(() => {
+    scrollToTheBottom();
+  }, [messageList]);
+
+  useEffect(() => {
     const { userName, userImage } = JSON.parse(localStorage.getItem('userInfos'));
-    
+
     setUserInfos({
       userName,
       userImage
@@ -34,7 +43,7 @@ function ChatPage() {
       .then(({ data }) => {
         setMessageList(data);
       });
-    
+
     realTimeListener((newMessage) => {
       setMessageList((currentList) => {
         return [
@@ -55,10 +64,11 @@ function ChatPage() {
             {messageList.map((message, i) => {
               return (
                 <li key={`${message}${i}`}>
-                  <Message userName={message.from} message={message.message} />  
+                  <Message userName={message.from} message={message.message} />
                 </li>
               )
             })}
+            <div ref={messagesEndRef}/>
           </ul>
         </div>
       </main>
@@ -82,6 +92,20 @@ function ChatPage() {
           ul {
             list-style-type: none;
             color: white;
+            overflow-y: auto;
+          }
+
+          ul::-webkit-scrollbar {
+            width: 15px;
+          }
+
+          ul::-webkit-scrollbar-track {
+            background: none;
+          }
+
+          ul::-webkit-scrollbar-thumb {
+            background-color: #AB4FBB;
+            border-radius: 10px;
           }
 
           li {
