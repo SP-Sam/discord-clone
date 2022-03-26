@@ -1,6 +1,7 @@
 import { createClient } from '@supabase/supabase-js';
 import { useState, useContext, useEffect, useRef } from 'react';
 import ChatForm from '../components/ChatForm';
+import LogoutButton from '../components/LogoutButton';
 import Message from '../components/Message';
 import MyContext from '../context/myContext';
 
@@ -57,6 +58,9 @@ function ChatPage() {
 
   return (
     <>
+      <header>
+        <LogoutButton />
+      </header>
       <main>
         <div className="chat-container">
           <ChatForm userName={userInfos.userName} supabase={supabase} />
@@ -75,8 +79,15 @@ function ChatPage() {
       </main>
 
       <style jsx>{`
+          header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 10vh;
+          }
           main {
             width: 100%;
+            height: 90vh;
             display: flex;
             justify-content: center;
           }
@@ -85,12 +96,13 @@ function ChatPage() {
             display: flex;
             flex-direction: column-reverse;
             border-radius: 5px;
-            width: 85%;
-            height: 95vh;
-            margin: 1rem 0;
+            width: 84%;
+            margin-bottom: 1rem;
           }
 
-          ul {;
+          ul {
+            border-top: 1px solid #ffffff49;
+            padding: 0.5rem 0 0 0.5rem;
             list-style-type: none;
             color: white;
             overflow-y: auto;

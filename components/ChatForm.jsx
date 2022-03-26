@@ -42,6 +42,7 @@ function ChatForm({ userName, supabase }) {
             display: flex;
             justify-content: space-between;
             width: 100%;
+            margin-top: 0.5rem;
           }
 
           input {
