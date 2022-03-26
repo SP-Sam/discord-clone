@@ -84,6 +84,7 @@ function ChatPage() {
             justify-content: center;
             align-items: center;
             height: 10vh;
+            border-bottom: 1px solid #ffffff49;
           }
           main {
             width: 100%;
@@ -101,7 +102,6 @@ function ChatPage() {
           }
 
           ul {
-            border-top: 1px solid #ffffff49;
             padding: 0.5rem 0 0 0.5rem;
             list-style-type: none;
             color: white;
