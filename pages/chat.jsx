@@ -40,6 +40,7 @@ function ChatPage() {
     });
 
     supabase.from('messages').select('*')
+      .order('id', { ascending: true })
       .then(({ data }) => {
         setMessageList(data);
       });
@@ -68,7 +69,7 @@ function ChatPage() {
                 </li>
               )
             })}
-            <div ref={messagesEndRef}/>
+            <div ref={messagesEndRef} />
           </ul>
         </div>
       </main>
@@ -89,7 +90,7 @@ function ChatPage() {
             margin: 1rem 0;
           }
 
-          ul {
+          ul {;
             list-style-type: none;
             color: white;
             overflow-y: auto;

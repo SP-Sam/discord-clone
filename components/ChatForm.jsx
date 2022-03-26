@@ -1,13 +1,9 @@
 import Image from 'next/image';
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import sendIcon from '../public/sendIcon.png';
-
-import MyContext from '../context/myContext';
 
 function ChatForm({ userName, supabase }) {
   const [inputValue, setInputValue] = useState('');
-
-  const { messageList, setMessageList } = useContext(MyContext);
 
   function handleChange({ target: { value } }) {
     setInputValue(value);
