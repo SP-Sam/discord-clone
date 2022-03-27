@@ -59,7 +59,13 @@ function ChatPage() {
   return (
     <>
       <header>
+        <a href="https://www.linkedin.com/in/spsam/" target="_blank" rel="noopener noreferrer">
+          <img src="https://img.icons8.com/ios-filled/46/ffffff/linkedin.png" />
+        </a>
         <LogoutButton />
+        <a href="https://github.com/SP-Sam/discord-clone" target="_blank" rel="noopener noreferrer">
+          <img src="https://img.icons8.com/ios-glyphs/46/ffffff/github.png" />
+        </a>
       </header>
       <main>
         <div className="chat-container">
@@ -81,7 +87,7 @@ function ChatPage() {
       <style jsx>{`
           header {
             display: flex;
-            justify-content: center;
+            justify-content: space-around;
             align-items: center;
             height: 10vh;
             border-bottom: 1px solid #ffffff49;
