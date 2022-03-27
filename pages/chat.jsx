@@ -96,7 +96,6 @@ function ChatPage() {
           .chat-container {
             display: flex;
             flex-direction: column-reverse;
-            border-radius: 5px;
             width: 84%;
             margin-bottom: 1rem;
           }
@@ -109,7 +108,7 @@ function ChatPage() {
           }
 
           ul::-webkit-scrollbar {
-            width: 15px;
+            width: 0.5rem;
           }
 
           ul::-webkit-scrollbar-track {
@@ -118,13 +117,13 @@ function ChatPage() {
 
           ul::-webkit-scrollbar-thumb {
             background-color: #AB4FBB;
-            border-radius: 10px;
+            border-radius: 0.6rem;
           }
 
           li {
             width: 99%;
-            margin-bottom: 5px;
-            padding-bottom: 7px;
+            margin-bottom: 0.4rem;
+            padding-bottom: 0.45rem;
           }
         `}</style>
     </>
